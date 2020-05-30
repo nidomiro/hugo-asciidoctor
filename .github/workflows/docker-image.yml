@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
+    - name: Log into docker-hub
+      run: docker login --username nidomiro -p ${DOCKER_HUB_TOKEN}
+
     - name: Build the Docker image
       run: docker build . --tag nidomiro/hugo-asciidoctor:latest
+
     - name: Push the Docker image
       run: docker push nidomiro/hugo-asciidoctor:latest
