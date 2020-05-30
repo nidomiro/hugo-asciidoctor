@@ -20,4 +20,4 @@ jobs:
     - name: Push the Docker image (latest)
       run: docker push nidomiro/hugo-asciidoctor:latest
     - name: Push the Docker image (commit-hash)
-      run: docker nidomiro/hugo-asciidoctor:$(git rev-parse --short "$GITHUB_SHA")
+      run: docker push nidomiro/hugo-asciidoctor:$(git rev-parse --short "$GITHUB_SHA")
