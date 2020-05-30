@@ -7,10 +7,10 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag latest
+      run:
+        - docker build . --tag nidomiro/hugo-asciidoctor:latest
+        - docker push nidomiro/hugo-asciidoctor:latest
