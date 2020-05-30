@@ -11,6 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run:
-        - docker build . --tag nidomiro/hugo-asciidoctor:latest
-        - docker push nidomiro/hugo-asciidoctor:latest
+      run: docker build . --tag nidomiro/hugo-asciidoctor:latest
+    - name: Push the Docker image
+      run: docker push nidomiro/hugo-asciidoctor:latest
