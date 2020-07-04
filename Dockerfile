@@ -2,8 +2,12 @@ FROM ubuntu:20.04
 
 RUN apt-get -qq update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends libstdc++6 python-pygments git ca-certificates curl ruby gem \
-	&& gem install asciidoctor asciidoctor-pdf asciidoctor-html5s asciidoctor-diagram\
-	&& rm -rf /var/lib/apt/lists/*
+	&& gem install asciidoctor asciidoctor-pdf asciidoctor-html5s asciidoctor-diagram \
+	&& rm -rf /var/lib/apt/lists/* \
+	&& curl -sL -o /tmp/docker.deb "https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_19.03.10~3-0~ubuntu-focal_amd64.deb" \
+	&& dpkg -i /tmp/docker.deb \
+	&& rm -rf /tmp/docker.deb
+
 
 ENV HUGO_VERSION 0.73.0
 ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
