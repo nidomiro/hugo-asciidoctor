@@ -1,0 +1,18 @@
+#!/bin/bash
+
+REDUCED_PARAMS=()
+
+if [[ -z ${FORCE_DISABLE_SAVE_MODE+x} ]];then
+
+    for arg in "$@"; do
+      if [[ "$arg" != "--safe" ]]; then
+        REDUCED_PARAMS+=("$arg")
+      fi
+    done;
+
+else
+    REDUCED_PARAMS=("$@")
+fi
+
+/usr/local/bin/asciidoctor -r asciidoctor-html5s -b html5s -r asciidoctor-diagram "${REDUCED_PARAMS[@]}"
+

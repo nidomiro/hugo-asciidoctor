@@ -1,0 +1,9 @@
+#!/bin/bash
+
+EXTRA_PARAMS=""
+if [[ "$1" == "server" ]]; then
+    EXTRA_PARAMS="-b ${HUGO_BASE_URL} --bind=0.0.0.0"
+fi
+
+PATH="/hugo-fake-bin:$PATH" /usr/local/bin/hugo $@ ${EXTRA_PARAMS}
+
