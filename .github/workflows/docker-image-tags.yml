@@ -3,7 +3,7 @@ name: Docker Image CI (Tag)
 on:
   push:
     tags:
-      - "*/*"
+      - "**/*"
 
 jobs:
   build:
@@ -15,9 +15,7 @@ jobs:
         run: docker login --username nidomiro --password ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Build the Docker image
-        run: docker build . --tag nidomiro/hugo-asciidoctor:latest --tag nidomiro/hugo-asciidoctor:$(git rev-parse --short "$GITHUB_SHA")
+        run: docker build . --tag nidomiro/hugo-asciidoctor:$(git describe --tags "$GITHUB_SHA")
 
       - name: Push the Docker image (Tag)
-        run: docker push nidomiro/hugo-asciidoctor:latest
-      - name: Push the Docker image (commit-hash)
-        run: docker push nidomiro/hugo-asciidoctor:$(git rev-parse --short "$GITHUB_SHA")
+        run: docker push nidomiro/hugo-asciidoctor:$(git describe --tags "$GITHUB_SHA")
