@@ -1,9 +1,9 @@
-FROM ruby:2.7
+FROM ubuntu:20.04
 
 # Install pygments (for syntax highlighting), gem
 RUN apt-get -qq update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends libstdc++6 python-pygments git ca-certificates curl \
-	&& gem install asciidoctor \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends libstdc++6 python-pygments git ca-certificates curl ruby gem\
+	&& gem install asciidoctor asciidoctor-pdf asciidoctor-html5s asciidoctor-diagram\
 	&& rm -rf /var/lib/apt/lists/*
 
 # Configuration variables
