@@ -9,13 +9,14 @@ RUN apt-get -qq update \
 	&& rm -rf /tmp/docker.deb
 
 
-ENV HUGO_VERSION 0.74.3
-ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
-ENV SITE_DIR '/usr/share/blog'
 ENV PATH="/my-bin:${PATH}"
 
-ADD hugo-fake-bin /hugo-fake-bin
-ADD my-bin /my-bin
+COPY hugo-fake-bin /hugo-fake-bin
+COPY my-bin /my-bin
+
+ENV HUGO_VERSION 0.78.2
+ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
+ENV SITE_DIR '/usr/share/blog'
 
 RUN curl -sL -o /tmp/hugo.deb \
     https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY} && \

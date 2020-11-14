@@ -5,7 +5,7 @@ This image contains some fixes to produce better html.
 
 **Latest Image**: `docker pull nidomiro/hugo-asciidoctor:latest`
 
-**Stable Image**: `docker pull nidomiro/hugo-asciidoctor:v0.7.43-0`
+**Stable Image**: `docker pull nidomiro/hugo-asciidoctor:v0.78.2-0`
 
 More versions: https://hub.docker.com/repository/docker/nidomiro/hugo-asciidoctor
 
@@ -16,17 +16,17 @@ To (forcefully) disable safe rendering register the env-var `FORCE_DISABLE_SAVE_
 
 ### Run a dev-server
 ```bash
-docker run -it --rm -v "$PROJECT_PATH/:/usr/share/blog" -p "1313:1313" nidomiro/hugo-asciidoctor:v0.74.3-0
+docker run -it --rm -v "$PROJECT_PATH/:/usr/share/blog" -p "1313:1313" nidomiro/hugo-asciidoctor:v0.78.2-0
 ```
 
 ### Run a dev-server with options
 ```bash
-docker run -it --rm -v "$PROJECT_PATH/:/usr/share/blog" -p "1313:1313" nidomiro/hugo-asciidoctor:v0.74.3-0 hugo server --buildDrafts --buildFuture --disableFastRender
+docker run -it --rm -v "$PROJECT_PATH/:/usr/share/blog" -p "1313:1313" nidomiro/hugo-asciidoctor:v0.78.2-0 hugo server --buildDrafts --buildFuture --disableFastRender
 ```
 
 ### Build
 ```bash
-docker run -it --rm -v "$PROJECT_PATH/:/usr/share/blog" nidomiro/hugo-asciidoctor:v0.74.3-0 hugo
+docker run -it --rm -v "$PROJECT_PATH/:/usr/share/blog" nidomiro/hugo-asciidoctor:v0.78.2-0 hugo
 ```
 
 
