@@ -14,5 +14,5 @@ else
     REDUCED_PARAMS=("$@")
 fi
 
-/usr/local/bin/asciidoctor -r asciidoctor-html5s -b html5s -r asciidoctor-diagram "${REDUCED_PARAMS[@]}"
+/usr/bin/asciidoctor -r asciidoctor-html5s -b html5s -r asciidoctor-diagram "${REDUCED_PARAMS[@]}"
 

@@ -8,5 +8,5 @@ fi
 
 PATH="/hugo-fake-bin:$PATH" /usr/local/bin/hugo $@ ${EXTRA_PARAMS}
 
-chmod -R a+rw ${PWD}/public && true
+chmod -R a+rw ${PWD}/public || true
 
